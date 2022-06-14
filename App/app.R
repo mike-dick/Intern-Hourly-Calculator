@@ -1,6 +1,7 @@
 library(shiny)
 library(fontawesome)
-
+#Adding R file to app.R#
+source("helper.R")
 
 ui <- fluidPage(
   #Connecting to CSS#
@@ -23,3 +24,21 @@ ui <- fluidPage(
   
   
 )
+
+server <- function(input, output, session)
+{
+  observeEvent(
+    input$add,
+    {
+      print("add works")
+    }
+  )
+  observeEvent(
+    input$done,
+    {
+      print("done works")
+    }
+  )
+}
+
+shinyApp(ui = ui, server = server)
